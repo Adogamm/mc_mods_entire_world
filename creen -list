@@ -1,0 +1,17 @@
+● minecraft@5120.service - Minecraft Droplet Server
+     Loaded: loaded (/etc/systemd/system/minecraft@.service; disabled; vendor preset: enabled)
+     Active: deactivating (stop) since Tue 2024-10-29 22:42:06 UTC; 15s ago
+    Process: 1840 ExecStart=/bin/sh -c /usr/bin/screen -dmS minecraft                  /usr/bin/java                     -server                     -Xms$${RAM}M                     -Xmx$${RAM}M                     -XX:+UseG1GC                     -XX:ParallelGCThreads=2                     -XX:MinHeapFreeRatio=5                     -XX:MaxHeapFreeRatio=10                     -jar server.jar                     --nogui (code=exited, status=0/SUCCESS)
+    Process: 1846 ExecStop=/usr/bin/screen -p 0 -S minecraft -X eval stuff "say SERVER SHUTTING DOWN. Saving map..."\015 (code=exited, status=0/SUCCESS)
+    Process: 1856 ExecStop=/bin/sh -c /bin/sleep ${SHUTDOWN_DELAY} (code=exited, status=0/SUCCESS)
+    Process: 1880 ExecStop=/usr/bin/screen -p 0 -S minecraft -X eval stuff "save-all"\015 (code=exited, status=0/SUCCESS)
+    Process: 1882 ExecStop=/usr/bin/screen -p 0 -S minecraft -X eval stuff "stop"\015 (code=exited, status=0/SUCCESS)
+   Main PID: 1840 (code=exited, status=0/SUCCESS); Control PID: 1884 (sh)
+      Tasks: 2 (limit: 9478)
+     Memory: 460.0K
+        CPU: 16.851s
+     CGroup: /system.slice/system-minecraft.slice/minecraft@5120.service
+             ├─1884 /bin/sh -c "/bin/sleep 10"
+             └─1886 /bin/sleep 10
+
+Oct 29 22:42:06 minecraftforgeeditionserver1202onubuntu2204-s-2vcpu-4gb-amd-sfo3 systemd[1]: Started Minecraft Droplet Server.

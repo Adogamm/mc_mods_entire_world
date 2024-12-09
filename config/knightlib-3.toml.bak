@@ -1,0 +1,5 @@
+# Drop Chance Configuration
+# Drop chance for small essence
+# Range: 0.0 ~ 1.0
+DropChanceForSmallEssence = 0.15
+
